@@ -11,8 +11,9 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('view engine', 'ejs');
 var io = require('socket.io')(server);
-
+var Gpio = require('onoff').Gpio;
 var s
+var pushButton = new Gpio(26, 'in', 'both');
 
 function listen() {
   var port = server.address().port;
@@ -91,3 +92,16 @@ function sendMail(email){
                          }
                          });
 }
+pushButton.watch(function (err, value) { //Watch for hardware interrupts on pushButton GPIO, specify callback function
+                 if (err) { //if an error
+                 console.error('There was an error', err); //output error message to console
+                 return;
+                 }
+                 console.log('se presiona'); //turn LED on or off depending on the button state (0 or 1)
+                 });
+
+function unexportOnClose() { //function to run when exiting program
+    pushButton.unexport(); // Unexport Button GPIO to free resources
+};
+
+process.on('SIGINT', unexportOnClose); //function to run when user closes using ctrl+c
