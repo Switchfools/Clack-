@@ -1,0 +1,30 @@
+{
+  "name": "sockets_p5",
+  "version": "1.0.0",
+  "description": "This is an example for how to use sockets with p5.js.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Shiffman",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "email-templates": "^5.0.2",
+    "express": "^4.13.4",
+    "node-cmd": "^3.0.0",
+    "nodemailer": "^4.6.8",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "path": "^0.12.7",
+    "socket.io": "^1.4.5"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-inline-css": "^3.3.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2"
+  }
+}
